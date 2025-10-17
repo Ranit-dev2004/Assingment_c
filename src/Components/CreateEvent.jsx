@@ -59,7 +59,7 @@ const CreateEvent = () => {
   // ✅ Fetch profiles from API
   const fetchProfiles = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/profiles");
+      const res = await axios.get("https://assingment-b.onrender.com//api/profiles");
       setProfiles(res.data);
     } catch (err) {
       console.error("Error fetching profiles:", err);
@@ -74,7 +74,7 @@ const CreateEvent = () => {
   const handleAddProfile = async () => {
     if (!newProfile.trim()) return alert("Enter profile name");
     try {
-      const res = await axios.post("http://localhost:4000/api/profiles", {
+      const res = await axios.post("https://assingment-b.onrender.com//api/profiles", {
         name: newProfile.trim(),
         timezone: "UTC",
       });
@@ -98,7 +98,7 @@ const CreateEvent = () => {
     endTime
   ) {
     try {
-      const res = await axios.post("http://localhost:4000/api/events", {
+      const res = await axios.post("https://assingment-b.onrender.com//api/events", {
         profiles: selectedProfiles.map((p) => p._id),
         timezone,
         startDateTime: `${startDate}T${startTime}`, // ✅ Fixed
