@@ -78,7 +78,7 @@ const Events = ({ events, onUpdate, currentProfileId }) => {
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
-        const res = await axios.get("https://assingment-b.onrender.com//api/profiles");
+        const res = await axios.get("https://assingment-b.onrender.com/api/profiles");
         setProfiles(res.data);
       } catch (err) {
         console.error("Error fetching profiles:", err);
@@ -115,7 +115,7 @@ const Events = ({ events, onUpdate, currentProfileId }) => {
       const removeProfiles = originalIds.filter((id) => !selectedProfiles.includes(id));
 
       const res = await axios.put(
-        `https://assingment-b.onrender.com//api/events/${editingEvent._id}`,
+        `https://assingment-b.onrender.com/api/events/${editingEvent._id}`,
         {
           ...editData,
           addProfiles,
@@ -134,7 +134,7 @@ const Events = ({ events, onUpdate, currentProfileId }) => {
   // ✅ Fetch logs
   const handleViewLogs = async (eventId) => {
     try {
-      const res = await axios.get(`https://assingment-b.onrender.com//api/events/${eventId}/logs`);
+      const res = await axios.get(`https://assingment-b.onrender.com/api/events/${eventId}/logs`);
       setLogs(res.data);
       setLogModalEvent(eventId);
     } catch (err) {

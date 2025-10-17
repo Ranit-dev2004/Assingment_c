@@ -16,7 +16,7 @@ const MainPage = () => {
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
-        const res = await axios.get("https://assingment-b.onrender.com//api/profiles");
+        const res = await axios.get("https://assingment-b.onrender.com/api/profiles");
         setProfiles(res.data);
       } catch (err) {
         console.error("Error fetching profiles:", err);
@@ -29,7 +29,7 @@ const MainPage = () => {
   const handleAddProfile = async () => {
     if (!newProfile.trim()) return;
     try {
-      const res = await axios.post("https://assingment-b.onrender.com//api/profiles", {
+      const res = await axios.post("https://assingment-b.onrender.com/api/profiles", {
         name: newProfile.trim(),
         timezone: "UTC",
       });
@@ -43,7 +43,7 @@ const MainPage = () => {
   // ✅ Fetch events for selected profile
   const fetchEvents = async (profileId) => {
     try {
-      const res = await axios.get("https://assingment-b.onrender.com//api/events");
+      const res = await axios.get("https://assingment-b.onrender.com/api/events");
       const userEvents = res.data.filter((event) =>
         event.profiles.some((p) => p._id === profileId)
       );
